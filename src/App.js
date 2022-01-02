@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Route from "./routes";
+import Login from "./components/login";
+import { getTokenFromResponse } from "./components/auth/auth-creds";
+
+const App = () => {
+	const [token, setToken] = useState("");
+	useEffect(() => {
+		const _token = getTokenFromResponse();
+		window.location.hash = "";
+		if (_token) {
+			setToken(_token);
+		}
+	}, []);
+	console.log(token);
+	return <div>{token !== "" ? <h1>logged in</h1> : <Login />}</div>;
+};
 
 export default App;
