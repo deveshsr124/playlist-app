@@ -1,0 +1,8 @@
+.footer {
+	background: linear-gradient(rgb(24, 24, 24), rgb(0, 0, 0, 1));
+	position: fixed;
+	bottom: 0;
+	height: 75px;
+	padding: 5px;
+	width: 100%;
+}

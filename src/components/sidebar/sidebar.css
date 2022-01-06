@@ -1,0 +1,7 @@
+.sidebar {
+	height: 100vh;
+	border: "1px solid black";
+	flex: 0.2;
+	padding-top: 10px;
+	background: linear-gradient(rgb(1, 0, 1), rgb(0, 0, 0, 1));
+}

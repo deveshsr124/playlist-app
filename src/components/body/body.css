@@ -1,0 +1,4 @@
+.body {
+	flex: 0.8;
+	background: linear-gradient(rgb(147, 160, 189), rgb(0, 0, 0, 1));
+}
