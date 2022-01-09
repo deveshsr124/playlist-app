@@ -1,10 +1,15 @@
 import React from "react";
 import "./body.css";
-
-const Body = ({ showPlaylist }) => {
+import DiscoverWeekly from "./DiscoverWeekly";
+import { useDataContextValue } from "../../context";
+const Body = ({ showPlaylist, spotify }) => {
 	return (
 		<div className="body">
-			{showPlaylist === true ? <h1>playlist selected</h1> : <h1>body</h1>}
+			{showPlaylist === true ? (
+				<h1>playlist selected</h1>
+			) : (
+				<DiscoverWeekly spotify={spotify} />
+			)}
 		</div>
 	);
 };

@@ -5,29 +5,18 @@ import { getTokenFromResponse } from "./components/auth/auth-creds";
 import { useDataContextValue } from "./context";
 import SpotifyWebApi from "spotify-web-api-js";
 import RouteComponent from "./Routes/routes";
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Navigate,
+} from "react-router-dom";
+import ProtectedRoute from "./Routes/protectedRoute";
 const s = new SpotifyWebApi();
 const App = () => {
-	//  to grab the data from the context state/central state
-	const [{}, dispatch] = useDataContextValue();
-
-	useEffect(() => {
-		let _token = getTokenFromResponse();
-		window.location.hash = "";
-		if (_token) {
-			//  setting token to be inside the global state
-
-			s.setAccessToken(_token);
-			dispatch({
-				type: "SET_TOKEN",
-				token: _token,
-			});
-			localStorage.setItem("token", _token);
-		}
-	}, []);
-
 	return (
 		<div>
-			{localStorage.getItem("token") ? <Home spotify={s} /> : <Login />}
+			<RouteComponent s={s} />
 		</div>
 	);
 };

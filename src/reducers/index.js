@@ -1,17 +1,13 @@
 export const intialState = {
 	user: null,
 	playlists: [],
-	token: null,
 	showPlaylist: false,
+	newRelease: [],
+	newReleaseTracks: [],
 };
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case "SET_TOKEN":
-			return {
-				...state,
-				token: action.token,
-			};
 		case "SET_USER":
 			return {
 				...state,
@@ -26,6 +22,16 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				showPlaylist: action.payload,
+			};
+		case "SET_NEW_RELEASE":
+			return {
+				...state,
+				newRelease: action.payload,
+			};
+		case "SET_NEW_RELEASE_TRACKS":
+			return {
+				...state,
+				newReleaseTracks: action.payload,
 			};
 		default:
 			return state;

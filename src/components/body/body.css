@@ -1,4 +1,26 @@
 .body {
 	flex: 0.8;
 	background: linear-gradient(rgb(147, 160, 189), rgb(0, 0, 0, 1));
+	height: 100vh;
+	padding: 20px;
+	overflow-y: overlay;
+}
+.body::-webkit-scrollbar {
+	display: none;
+}
+.header {
+	padding: 10px;
+	display: flex;
+	color: white;
+	align-items: flex-end;
+}
+
+.header img {
+	height: 18vw;
+	box-shadow: 0 4px 64px black;
+}
+
+.header-text {
+	flex: 1;
+	padding-left: 10px;
 }
